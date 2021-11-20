@@ -193,17 +193,13 @@ void gen_v( double  vector_a[], double  vector_b[], double random, int n)
 
 int main()
 {
-   
     srand((unsigned) time(0));
     int n=(rand() % 9) + 1;
-   
     double vector_a[n];
     double vector_b[n];
     double random;
     cout<<" Vector generator :"<<endl;
     gen_v(vector_a,vector_b,random, n);
-    
-   
     cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
     return 0;
         
