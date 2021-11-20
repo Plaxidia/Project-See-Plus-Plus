@@ -59,19 +59,12 @@ int main()
 {
     int max= 9;
     int min = 1;
-
     srand((unsigned) time(0));
     int n = (rand()%(max-min+1))+min;
     //cout<<"the value of n :"<< n<<endl;
-   
-    
     double vector_a[n];
     double vector_b[n];
- 
-    //cout<< "Values of n: "<<gen_v( vector_a[], vector_b[], range_max, range_min)<<endl;
-
     cout<< "Dot product: "<<dot_p( vector_a,vector_b,n);
-
     return 0;
         
 }
