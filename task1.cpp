@@ -2,7 +2,7 @@
 #include <string>
 #include <ostream>
 using namespace std;
-
+/*
 void gen_v( double  vector_a[], double  vector_b[],double random)
 { 
     int min;
@@ -22,7 +22,7 @@ void gen_v( double  vector_a[], double  vector_b[],double random)
           cin>>vector_b[i];
         }
       }
-      
+
     else if (n>5)
        {
         cout<<"generate the  values of vector_a:"<<endl;
@@ -68,4 +68,69 @@ int main()
     dot_p( vector_a,vector_b,n);
     return 0;
         
+}
+*/
+
+
+double   dot_p( double  vector_a[], double  vector_b[], double   n)
+{
+    double   product  = 0;
+    for (int i = 0; i < n; i++)
+    {
+        product += vector_a[i] * vector_b[i];
+    }
+    return product;
+}
+
+void gen_v( double  vector_a[], double  vector_b[], double random)
+{ 
+    int n=(rand() % 9) + 1;
+    cout<<"The value of n is: "<<n<<endl;
+
+    if(n<=5)
+    {
+        cout<<"enter the values of vector_a:"<<endl;
+        for (int i = 0 ; i<n; i++) 
+        {
+          cin>>vector_a[i];
+        }
+        cout<<"enter the values of vector_b"<<endl;
+        for (int i = 0 ; i<n; i++) 
+        {
+          cin>>vector_b[i];
+        }
+    }
+
+    else if (n>5)
+    {
+        cout<<"generated values of vector_a:"<<endl;
+        for (int i = 0 ; i<n; i++)
+            {
+               random=(rand() % 9) + 1;
+              vector_a[i] = random;
+              cout<< vector_a[i]<<" ";
+              cout<<endl;
+            }
+            
+        cout<<"generated values of vector_b:"<<endl;
+        for (int i = 0 ; i<n; i++)
+            {
+              random =(rand() % 9) + 1;
+              vector_b[i] = random;
+              cout<<vector_b[i]<<"  ";
+              cout<<endl;
+            }
+    }
+}
+
+int main()
+{
+    int n=(rand() % 9) + 1;
+    double vector_a[n];
+    double vector_b[n];
+    double random;
+    cout<<"Vector generator :"<<endl;
+    gen_v(vector_a,vector_b,random);
+    cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
+    return 0;
 }
