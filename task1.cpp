@@ -22,6 +22,7 @@ void gen_v( double  vector_a[], double  vector_b[],double random)
           cin>>vector_b[i];
         }
       }
+      
     else if (n>5)
        {
         cout<<"generate the  values of vector_a:"<<endl;
@@ -41,6 +42,7 @@ void gen_v( double  vector_a[], double  vector_b[],double random)
        }
  cout<<"the value of n :"<< n<<endl;
 }
+
 double   dot_p( double  vector_a[], double  vector_b[], double   n)
 {
     double   product  = 0;
@@ -62,7 +64,8 @@ int main()
     double random;
     cout<<" Vector generator :"<<endl;
     gen_v(vector_a,vector_b,random);
-    cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
+    cout<< "Dot product: "<<endl;
+    dot_p( vector_a,vector_b,n);
     return 0;
         
 }
