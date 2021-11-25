@@ -1,8 +1,9 @@
+/*
 #include <iostream>
 #include <string>
 #include <ostream>
 using namespace std;
-/*
+
 void gen_v( double  vector_a[], double  vector_b[],double random)
 { 
     int min;
@@ -195,10 +196,13 @@ int main()
 {
     srand((unsigned) time(0));
     int n=(rand() % 9) + 1;
+    cout<<"input the size of the vector :"<<endl;
+    cin>>n;
     double vector_a[n];
     double vector_b[n];
     double random;
     cout<<"Vector generator :"<<endl;
+
     gen_v(vector_a,vector_b,random, n);
     cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
     return 0;
