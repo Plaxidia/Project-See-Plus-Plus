@@ -192,6 +192,30 @@ void gen_v( double  vector_a[], double  vector_b[], double random, int n)
        }
 }
 
+//double   Matrix_vector_multiplication( double  matrix_a[][], double  vector_x[],  double   result[],double n)
+
+double   Matrix_vector_multiplication( double  matrix_a[4][4], double  vector_x[4],  double   result[],double n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        result [i]=0;
+    }
+    
+  for (int j=0;j<3;j++)
+  {
+ 
+    for (int i = 0; i < n; i++)
+    {
+        result [i]+= matrix_a[i][j] * vector_x[j];
+    }
+  }
+    for (int i=0;i<3;i++)
+    {
+        cout<<matrix_a[i]<<"  "<<endl;
+    }
+   return result[4];
+}
+
 int main()
 {
     srand((unsigned) time(0));
@@ -201,10 +225,15 @@ int main()
     double vector_a[n];
     double vector_b[n];
     double random;
+    double matrix_a[4][4] ={{2,3,4,5},{0,2,1,2},{2,9,8,1},{1,3,2,5}};
+    double vector_x[4]={2,4,1,0};
+    double result [4];
     cout<<"Vector generator :"<<endl;
-
     gen_v(vector_a,vector_b,random, n);
+
+    cout<<"print the matix :"<<endl;
+    cout<<" print 6 the vector  :"<<endl;
     cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
+    cout<< "matrix multiplication:"<< Matrix_vector_multiplication( matrix_a, vector_x,result  ,n);
     return 0;
-        
 }
