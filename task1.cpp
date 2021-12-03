@@ -193,40 +193,42 @@ void gen_v( double  vector_a[], double  vector_b[], double random, int n)
 }
 
 void   Matrix_vector_multiplication()
-{   
+{   //double n =4;
     cout <<"values  of n"<<endl;
-    double n=4; 
+  
     double  matrix_a[4][4] ;
     double  vector_x[4];
     double result [4];
     double r1, c1, r2;
      // j= columns,i=rows
-
-    for (int i = 0; i < n; i++)
+     cout << "Enter rows and columns matrix_a: ";
+     cin>>r1>>c1;
+     
+     cout << "Enter rows  for vector_x: ";
+     cin>>r2;
+    for (int i = 0; i < c1; i++)
     {
         result [i]=0;
     }
-    for (int j=0;j<n;j++)
+    for (int j=0;j<c1;j++)
     {  
-      for (int i = 0; i < n; i++)
+      for (int i = 0; i < r1; i++)
        {
-         cin>>j;
-         cin>>i;
-         cout<<matrix_a[j][i];
+         cout << "Enter element the matrix_a[][]" <<endl;
+         cin>>matrix_a[j][i];
        }
     }
-    cout<<"values of matrix_a[j][i]"<<endl;
-  for (int j=0;j<n;j++)
-    {  
-      cin>>j;
-       cout<<vector_x[j];
+  for (int j=0;j<c1;j++)
+    { 
+      cout<<"values of vector_x[j]"<<endl;
+      cin>>vector_x[j];
     }
-    cout<<"values of vector_x[j]"<<endl;
-  for (int j=0;j<n;j++)
+ 
+  for (int j=0;j<c1;j++)
     {  
-      for (int i = 0; i < n; i++)
+      for (int i = 0; i < r1; i++)
        {
-          for (int k = 0; i < n; k++)
+          for (int k = 0; i < r2; k++)
           {  
         result [j]+= matrix_a[j][i] * vector_x[j];
           }
@@ -246,13 +248,12 @@ int main()
     double vector_a[n];
     double vector_b[n];
     double random;
-    double  matrix_a[4][4];
-    double vector_x[4];
     cout<<"Vector generator :"<<endl;
     gen_v(vector_a,vector_b,random, n);
     cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
-    cout<< "matrix multiplication:"<< endl;
 
-     Matrix_vector_multiplication();
-    getchar();
+    cout<< "matrix multiplication:"<< endl;
+    Matrix_vector_multiplication();
+   return 0;
+   
 }
