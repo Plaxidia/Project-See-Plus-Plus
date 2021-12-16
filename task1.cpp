@@ -335,7 +335,10 @@ void gen_v( double  vector_a[], double  vector_b[], double random, int n)
             }
        }
 }
+void   gen_Matrix_vector()
+{ 
 
+}
 void   Matrix_vector_multiplication()
 { 
 // row  and colum size definition for the matrix A
@@ -397,6 +400,8 @@ void   Matrix_vector_multiplication()
     
     for (int i = 0 ; i<row_size; i++) 
     {
+     result[i]=0;
+
         for (int j = 0 ; j<col_size; j++) 
         {
             result[i] += A[i][j] * X[j];
