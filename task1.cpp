@@ -349,19 +349,27 @@ int main()
 {
   srand((unsigned) time(0));
   int n=(rand() % 9) + 1;
+  
   cout<<"input the size of the vector :"<<" ";
   cin>>n;
   double vector_a[n];
   double vector_b[n];
   double random;
+ 
   cout<<"Vector generator :"<<endl;
   gen_v(vector_a,vector_b,random, n);
   cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
   cout<< "matrix vector generator:"<< endl;
   gen_Matrix_vector(random);
   cout<< "matrix multiplication:"<< endl;
+  int row_size = 0;
+    int col_size = 0;
+
+    int A[row_size][col_size];  // Matrix A
+    int X[row_size]; // v
 
   Matrix_vector_multiplication();
+  
   
   return 0;
    
