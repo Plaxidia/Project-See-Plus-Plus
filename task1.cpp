@@ -236,31 +236,10 @@ void gen_v( double  vector_a[], double  vector_b[], double random, int n)
             }
        }
 }
-void   gen_Matrix_vector(double random)
+void   gen_Matrix_vector(double random, int vector_size, int row_size,int col_size )
 {
-  // row  and colum size definition for the matrix A
-    
-    int row_size = 0;//matrix_size
-    int col_size = 0;
-    int vector_size = 0 ;
-
-   
-    cout<<"row size: "<<endl;
-    cin>>row_size;
-    
-    cout<<"column size :"<<endl;
-    cin>>col_size;
-    
     int A[row_size][col_size];  // Matrix A
     int X[row_size]; // vector
-
-    // the Vector must be equal to the col size of the Matrix A
-    do{
-        cout<<"vector size: "<<endl;
-        cin>>vector_size;//matrix size = vector size
-      }
-    while(row_size != col_size);
-    
    if (row_size<=4)
    {
     // input elements of the matrix A
@@ -307,10 +286,8 @@ void   gen_Matrix_vector(double random)
   }
 }
 
-void  Matrix_vector_multiplication()
+void  Matrix_vector_multiplication( int vector_size, int row_size,int col_size )
 {
-    int row_size = 0;
-    int col_size = 0;
 
     int A[row_size][col_size];  // Matrix A
     int X[row_size]; // vector
@@ -360,17 +337,33 @@ int main()
   gen_v(vector_a,vector_b,random, n);
   cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
   cout<< "matrix vector generator:"<< endl;
-  gen_Matrix_vector(random);
-  cout<< "matrix multiplication:"<< endl;
-  int row_size = 0;
-    int col_size = 0;
 
-    int A[row_size][col_size];  // Matrix A
-    int X[row_size]; // v
+// row  and colum size definition for the matrix A
+      int row_size = 0;//matrix_size
+      int col_size = 0;
+      int vector_size = 0 ;
+      
+      cout<<"row size: "<<endl;
+      cin>>row_size;
+      
+      cout<<"column size :"<<endl;
+      cin>>col_size;  
 
-  Matrix_vector_multiplication();
-  
-  
-  return 0;
-   
+      int A[row_size][col_size];
+      // the Vector must not be equal to the col size of the Matrix A
+      do{
+          cout<<"vector size: "<<endl;
+          cin>>vector_size;//matrix size = vector size
+        }
+      while(row_size != col_size);
+      
+
+      int X[vector_size];
+
+      gen_Matrix_vector(random, vector_size, row_size, col_size);
+
+      cout<< "matrix multiplication: "<< endl;
+      Matrix_vector_multiplication(vector_size ,row_size ,col_size);
+
 }
+
