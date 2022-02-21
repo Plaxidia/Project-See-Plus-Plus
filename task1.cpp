@@ -251,7 +251,6 @@ void   gen_Matrix_vector(double random, int vector_size, int row_size,int col_si
             cin>>A[i][j];
         }
     }
-
     // input elements of the vector X
     cout<<"input elements  of the Vector X:"<<endl;
        for (int i = 0 ; i<vector_size; i++)
