@@ -1,323 +1,168 @@
 /*
-
-#include <iostream>
-#include <string>
-#include <ostream>
-using namespace std;
-
-double   dot_p( double  vector_a[], double  vector_b[], double n)
-{
-    double   product  = 0;
-    for (int i = 0; i < n; i++)
+//printing out the matrix ,  the vector 
+    cout<<"The matric , vector and the result   :"<<endl;
+    for (int i = 0; i < m; i++)
     {
-        product += vector_a[i] * vector_b[i];
-    }
-    return product;
-}
-
-void gen_v( double  vector_a[], double  vector_b[], double random, int n)
-{
-    
-
-    if(n<=5)
-    {
-        cout<<"enter the values of vector_a:"<<endl;
-        for (int i = 0 ; i<n; i++)
+        for (int j = 0; j < m; j++)
         {
-          cin>>vector_a[i];
+          cout<<result[i] += matrix[i * m + j] * matrix[j]<<" ";
+           cout<<"| " <<matrix[i] <<"="<<result[i]<<" ";
+
         }
-        cout<<"enter the values of vector_b"<<endl;
-        for (int i = 0 ; i<n; i++)
-        {
-          cin>>vector_b[i];
-        }
+
     }
 
-    else if (n>5)
 
-       {
-        cout<<"generated values of vector_a:"<<endl;
-        for (int i = 0 ; i<n; i++)
-            {
-              random=(rand() % 9) + 1;
-              vector_a[i] = random;
-              cout<< vector_a[i]<<" ";
-              cout<<endl;
-            }
-            
-        cout<<"generated values of vector_b:"<<endl;
-        for (int i = 0 ; i<n; i++)
-            {
-              random =(rand() % 9) + 1;
-              vector_b[i] = random;
-              cout<<vector_b[i]<<"  ";
-              cout<<endl;
-            }
-       }
-}
-void   gen_Matrix_vector(double random)
-{ 
-  // row  and colum size definition for the matrix A
-    
-    int row_size = 0;//matrix_size
-    int col_size = 0;
-    int A[row_size][col_size];  // Matrix A
-    int X[row_size]; // vector
-    
-
-    cout<<"row size: "<<endl;
-    cin>>row_size;
-    
-    cout<<"column size :"<<endl;
-    cin>>col_size;
-    
-    // the Vector must be equal to the col size of the Matrix A
-    do{
-        cout<<"vector size: "<<endl;
-        cin>>row_size;//matrix size = vector size
-      }
-  while(row_size!= col_size);
-   if (row_size<=4) 
-   {
-    // input elements of the matrix A
-    cout<<"input elements  of the matrix A :"<<endl;
-    for (int i = 0 ; i<row_size; i++) 
-    {
-        for (int j = 0 ; j<col_size; j++) 
-        {
-            cin>>A[i][j];
-        }
-    }
-
-    // input elements of the vector X
+// input elements of the vector X
     cout<<"input elements  of the Vector X:"<<endl;
-       for (int i = 0 ; i<row_size; i++) 
+       for (int i = 0 ; i<m; i++)
         {
-            cin>>X[i];
+            cin>>matrix[i];
+            break;
         }
-  }
-    else if (row_size>4)
-   {  
-     //generate elemnts   of the matrix A :
-        cout<<"generate elemnts   of the matrix A :"<<endl;
-        for (int i = 0 ; i<row_size; i++) 
-          {
-            for (int j = 0 ; j<col_size; j++) 
-            {
-            random=(rand() % 9) + 1;    
-            A[i][j] = random;
-            cout<<A[i][j]<<" ";
-            }
-            cout<<endl;
-          }
-
-    // input elements of the vector X
-         cout<<"generate elements  of the Vector X:"<<endl;
-        for (int i = 0 ; i<row_size; i++) 
-        {
-          random=(rand() % 9) + 1;    
-            X[i] = random;
-            cout<<X[i]<<" ";
-            cout<<endl;  
-        }
-  }
-}
-void  Matrix_vector_multiplication()
-{ 
-    int row_size = 0;
-    int col_size = 0;
-     
-    int A[row_size][col_size];  // Matrix A
-    int X[row_size]; // vector
-      Perform multiplication
-     Example : A * X
-     1 -1 2     2
-     0 -3 1     1
-                0   
-    result:
-          1
-         -3
-    int result[row_size]; // store the result
-    for (int i = 0 ; i<row_size; i++) 
-    {
-       result[i]=0;
-    }
-    for (int i = 0 ; i<row_size; i++) 
-    {
-        for (int j = 0 ; j<col_size; j++) 
-        {
-            result[i] += A[i][j] * X[j];
-        }
-    }
-      // Show the result
-    cout<<"Final Result:"<<endl;
-    for (int i = 0; i<row_size; i++) 
-    {
-        cout<<result[i]<<endl;
-    }
-    cout<<endl;
-    //return result[col_size];
-}
-
-int main()
-{
-    srand((unsigned) time(0));
-  int n=(rand() % 9) + 1;
-  cout<<"input the size of the vector :"<<" ";
-  cin>>n;
-  double vector_a[n];
-  double vector_b[n];
-  double random;
-  cout<<"Vector generator :"<<endl;
-  gen_v(vector_a,vector_b,random, n);
-  cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
-  cout<< "matrix vector generator:"<< endl;
-  gen_Matrix_vector(random);
-  cout<< "matrix multiplication:"<< endl;
-  
-  Matrix_vector_multiplication();
-  
-  return 0;
-   
-}
-*/
-#include <iostream>
-#include <string>
-#include <ostream>
-using namespace std;
-
-double   dot_p( double  vector_a[], double  vector_b[], double n)
-{
-    double   product  = 0;
-    for (int i = 0; i < n; i++)
-    {
-        product += vector_a[i] * vector_b[i];
-    }
-    return product;
-}
-
-void gen_v( double  vector_a[], double  vector_b[], double random, int n)
-{
-    
-
-    if(n<=5)
-    {
-        cout<<"enter the values of vector_a:"<<endl;
-        for (int i = 0 ; i<n; i++)
-        {
-          cin>>vector_a[i];
-        }
-        cout<<"enter the values of vector_b"<<endl;
-        for (int i = 0 ; i<n; i++)
-        {
-          cin>>vector_b[i];
-        }
-    }
-
-    else if (n>5)
-
-       {
-        cout<<"generated values of vector_a:"<<endl;
-        for (int i = 0 ; i<n; i++)
-            {
-              random=(rand() % 9) + 1;
-              vector_a[i] = random;
-              cout<< vector_a[i]<<" ";
-              cout<<endl;
-            }
-            
-        cout<<"generated values of vector_b:"<<endl;
-        for (int i = 0 ; i<n; i++)
-            {
-              random =(rand() % 9) + 1;
-              vector_b[i] = random;
-              cout<<vector_b[i]<<"  ";
-              cout<<endl;
-            }
-       }
-}
-void   gen_Matrix_vector(double random, int vector_size, int row_size,int col_size )
-{
-    int A[row_size][col_size];  // Matrix A
-    int X[row_size]; // vector
-   if (row_size<=4)
-   {
-    // input elements of the matrix A
-    cout<<"input elements  of the matrix A :"<<endl;
-    for (int i = 0 ; i<row_size; i++)
-    {
-        for (int j = 0 ; j<col_size; j++)
-        {
-            cin>>A[i][j];
-        }
-    }
-    // input elements of the vector X
-    cout<<"input elements  of the Vector X:"<<endl;
-       for (int i = 0 ; i<vector_size; i++)
-        {
-            cin>>X[i];
-        }
-  }
-    else if (row_size>4)
-   {
-     //generate elemnts   of the matrix A :
-        cout<<"generate elemnts   of the matrix A :"<<endl;
-        for (int i = 0 ; i<row_size; i++)
-          {
-            for (int j = 0 ; j<col_size; j++)
-            {
-            random=(rand() % 9) + 1;
-            A[i][j] = random;
-            cout<<A[i][j]<<" ";
-            }
-            cout<<endl;
-          }
-
-    // input elements of the vector X
-         cout<<"generate elements  of the Vector X:"<<endl;
-        for (int i = 0 ; i<row_size; i++)
+ cout<<"generate elements  of the Vector X:"<<endl;
+        for (int i = 0 ; i<m; i++)
         {
           random=(rand() % 9) + 1;
-            X[i] = random;
-            cout<<X[i]<<" ";
+            matrix[i] = random;
+            cout<<matrix[i]<<" ";
             cout<<endl;
-        }
-  }
+            */
+#include <iostream>
+#include <string>
+#include <ostream>
+using namespace std;
+
+double   dot_p( double  vector_a[], double  vector_b[], double n)
+{
+    double   product  = 0;
+    for (int i = 0; i < n; i++)
+    {
+        product += vector_a[i] * vector_b[i];
+    }
+    return product;
 }
 
-void  Matrix_vector_multiplication( int vector_size, int row_size,int col_size )
+void gen_v( double  vector_a[], double  vector_b[], double random, int n)
 {
+    
 
-    int A[row_size][col_size];  // Matrix A
-    int X[row_size]; // vector
-    /*  Perform multiplication
-     Example : A * X
-     1 -1 2     2
-     0 -3 1     1
-                0
-    result:
-          1
-         -3
-     */
-    int result[row_size]; // store the result
-    for (int i = 0 ; i<row_size; i++)
+    if(n<=5)
+    {
+        cout<<"enter the values of vector_a:"<<endl;
+        for (int i = 0 ; i<n; i++)
+        {
+          cin>>vector_a[i];
+        }
+        cout<<"enter the values of vector_b"<<endl;
+        for (int i = 0 ; i<n; i++)
+        {
+          cin>>vector_b[i];
+        }
+    }
+
+    else if (n>5)
+
+       {
+        cout<<"generated values of vector_a:"<<endl;
+        for (int i = 0 ; i<n; i++)
+            {
+              random=(rand() % 9) + 1;
+              vector_a[i] = random;
+              cout<< vector_a[i]<<" ";
+              cout<<endl;
+            }
+            
+        cout<<"generated values of vector_b:"<<endl;
+        for (int i = 0 ; i<n; i++)
+            {
+              random =(rand() % 9) + 1;
+              vector_b[i] = random;
+              cout<<vector_b[i]<<"  ";
+              cout<<endl;
+            }
+       }
+}
+void   gen_Matrix_vector(double matrix[],double random, int m)
+{
+   if (m<=4)
+   {
+    // input elements of the matrix A
+    cout<<"input elements  of the matrix :"<<endl;
+    cin>>m;
+    for (int i = 0 ; i<m; i++)
+    {
+        for (int j = 0 ; j<m; j++)
+        {
+           matrix[i * m + j] = i + j;
+        }
+    }
+    cout<<"input elements  of the Vector :"<<endl;
+       for (int i = 0 ; i<m; i++)
+        {
+            cin>>matrix[i];
+            break;
+        }
+  }
+    else if (m>4)
+   {
+     //generate elemnts   of the matrix randomly:
+        cout<<"generate elemnts   of the matrix  :"<<endl;
+        for ( int i = 0 ; i<m; i++)
+          {
+            for (int j = 0 ; j<m; j++)
+            {
+            random=(rand() % 9) + 1;
+            matrix[i * m + j] = random;
+            cout<<  matrix[i * m + j];
+            }
+            cout<<endl;
+          }
+          cout<<"generate elements  of the Vector :"<<endl;
+        for (int i = 0 ; i<m; i++)
+        {
+          random=(rand() % 9) + 1;
+            matrix[i] = random;
+            cout<<matrix[i]<<" ";
+            //7cout<<endl;
+        }
+    // printing out the generated matrix
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            // notation matrix[i*n+j]  for 1d array equivalent to matrix[i][j] for 2d array
+            cout<<matrix[i * m+ j]<<" ";
+        }
+        cout << endl;
+    }
+  }
+       
+}
+
+void  Matrix_vector_multiplication( int   m,double  matrix[] )
+{
+    int result[m]; // store the result
+    for (int i = 0 ; i<m; i++)
     {
        result[i]=0;
     }
-    for (int i = 0 ; i<row_size; i++)
+    for (int i = 0 ; i<m; i++)
     {
-        for (int j = 0 ; j<col_size; j++)
+        for (int j = 0 ; j<m; j++)
         {
-            result[i] += A[i][j] * X[j];
+            result[i] += matrix[i * m + j] * matrix[j];
         }
     }
-      // Show the result
-    cout<<"Final Result:"<<endl;
-    for (int i = 0; i<row_size; i++)
+    //Show the result
+    cout <<"final result"<<endl;
+    for (int i = 0; i<m; i++) 
     {
         cout<<result[i]<<endl;
     }
     cout<<endl;
+
+    
     
 }
 
@@ -335,34 +180,22 @@ int main()
   cout<<"Vector generator :"<<endl;
   gen_v(vector_a,vector_b,random, n);
   cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
-  cout<< "matrix vector generator:"<< endl;
+ 
 
-// row  and colum size definition for the matrix A
-      int row_size = 0;//matrix_size
-      int col_size = 0;
-      int vector_size = 0 ;
-      
-      cout<<"row size: "<<endl;
-      cin>>row_size;
-      
-      cout<<"column size :"<<endl;
-      cin>>col_size;  
+//const int m=5;//square matrix size
+ int m=(rand() % 9) + 1;
 
-      int A[row_size][col_size];
-      // the Vector must not be equal to the col size of the Matrix A
-      do{
-          cout<<"vector size: "<<endl;
-          cin>>vector_size;//matrix size = vector size
-        }
-      while(row_size != col_size);
-      
+cout<< "input the size of the matrix:"<< endl;
+cin>>m;
+//cout<< "input the size of the matrix-vector:"<< endl;
+//cin>>m;
+double matrix[m * m];//matrix is stored in 1d array of the n*n size, row by row
+cout<< "matrix vector generator  :"<< endl;
+gen_Matrix_vector( matrix,  random, m);
 
-      int X[vector_size];
+ cout<< "matrix multiplication: ";
+ Matrix_vector_multiplication( m,  matrix );
 
-      gen_Matrix_vector(random, vector_size, row_size, col_size);
-
-      cout<< "matrix multiplication: "<< endl;
-      Matrix_vector_multiplication(vector_size ,row_size ,col_size);
 
 }
 
