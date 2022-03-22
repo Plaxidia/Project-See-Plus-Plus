@@ -109,11 +109,11 @@ void   gen_Matrix_vector(double matrix[],double vector[],double random, int m)
     }
   }      
 }
-void  Matrix_vector_multiplication(int m,double matrix[],double vector[])
+void  Matrix_vector_multiplication(int m,double matrix[],double vector[], double result[])
 
 {
   int k;
-    double result[m]; // store the result
+    //double result[m]; // store the result
     for (int i = 0 ; i<m; i++)
     {
        result[i]=0;
@@ -126,9 +126,9 @@ void  Matrix_vector_multiplication(int m,double matrix[],double vector[])
         }
     }
 }
-void show_result(int  m)
+void show_result( double result[],int  m)
   {
-    double result[m];
+    //double result[m];
     //Show the result
     cout <<"final result"<<endl;
     for (int i = 0; i<m; i++) 
@@ -163,7 +163,7 @@ cout<< "matrix vector generator  :"<< endl;
 gen_Matrix_vector( matrix, vector, random, m);
 
 cout<< "matrix multiplication: ";
-Matrix_vector_multiplication(m,matrix,vector);
+Matrix_vector_multiplication(m,matrix,vector,result);
 cout<< "the result :"<<endl;
-show_result(m);
+show_result(result,m);
 }
