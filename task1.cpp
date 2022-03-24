@@ -71,7 +71,7 @@ void   gen_Matrix_vector(double matrix[],double vector[],double random, int m)
     cout<<"input elements  of the Vector :"<<endl;
        for (int i = 0 ; i<m; i++)
         {
-            cin>>vector[m];
+            cin>>vector[i];
            // break;
         }
   }
