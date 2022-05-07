@@ -86,7 +86,7 @@ void   gen_Matrix_vector(double matrix[],double vector[],double random, int m)
             matrix[i * m + j] = random;
             cout<<  matrix[i * m + j]<<" ";
             }
-            cout<<endl;
+            //cout<<endl;
           }
           cout<<"generate elements  of the Vector :"<<endl;
           
@@ -95,7 +95,8 @@ void   gen_Matrix_vector(double matrix[],double vector[],double random, int m)
           random=(rand() % 9) + 1;
             vector[i] = random;
             cout<<vector[i]<<" ";
-            cout<<endl;
+           
+            //cout<<endl;
         }
     // printing out the generated matrix
     for (int i = 0; i < m; i++)
@@ -143,9 +144,9 @@ int main()
   int n=(rand() % 9) + 1;
   cout<<"input the size of the vector :"<<" ";
   cin>>n;
-  double vector_a[n];
-  double vector_b[n];
-  double random;
+  double *vector_a = new double[n];
+  double *vector_b =new double[n];
+  double random =0;
   cout<<"Vector generator :"<<endl;
   gen_v(vector_a,vector_b,random, n);
   cout<< "Dot product: "<<dot_p( vector_a,vector_b,n)<<endl;
@@ -156,9 +157,9 @@ cout<< "input the size of the matrix:"<< endl;
 cin>>m;
 cout<< "input the size of the vector:"<<endl;
 cin>>m;
-double matrix[m * m];//matrix is stored in 1d array of the n*n size, row by row
-double vector[m];
-double result[m];
+double *matrix = new double[m * m];//matrix is stored in 1d array of the n*n size, row by row
+double *vector= new double[m];
+double *result =new double[n];
 cout<< "matrix vector generator  :"<< endl;
 gen_Matrix_vector( matrix, vector, random, m);
 
