@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <ostream>
+#include <time.h>
 using namespace std;
 
 double   dot_p( double  vector_a[], double  vector_b[], double n)
@@ -138,8 +139,25 @@ void show_result( double result[],int  m)
     }
     cout<<endl;
   }  
+
+
+
+  double calculate_runtime(double duration, clock_t start, clock_t finish)
+{   
+  
+    duration = (finish - start)/ double (CLOCKS_PER_SEC);
+    cout << "Time taken by the program is:" << fixed<< duration << endl;
+    cout << "Seconds" <<endl;
+    return duration;
+}
+
 int main()
 {
+   clock_t start;
+    clock_t finish;
+    double duration =0;
+    //recording the starting clock tick
+    start =clock();
   srand((unsigned) time(0));
   int n=(rand() % 9) + 1;
   cout<<"input the size of the vector :"<<" ";
@@ -167,4 +185,8 @@ cout<< "matrix multiplication: ";
 Matrix_vector_multiplication(m,matrix,vector,result);
 cout<< "the result :"<<endl;
 show_result(result,m);
+
+//recording the end clock tick
+finish =clock();
+ calculate_runtime(duration,  start,  finish);
 }
