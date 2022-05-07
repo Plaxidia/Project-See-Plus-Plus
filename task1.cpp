@@ -86,7 +86,7 @@ void   gen_Matrix_vector(double matrix[],double vector[],double random, int m)
             matrix[i * m + j] = random;
             cout<<  matrix[i * m + j]<<" ";
             }
-            //cout<<endl;
+            cout<<endl;
           }
           cout<<"generate elements  of the Vector :"<<endl;
           
@@ -96,7 +96,7 @@ void   gen_Matrix_vector(double matrix[],double vector[],double random, int m)
             vector[i] = random;
             cout<<vector[i]<<" ";
            
-            //cout<<endl;
+            cout<<endl;
         }
     // printing out the generated matrix
     for (int i = 0; i < m; i++)

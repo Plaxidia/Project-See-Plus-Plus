@@ -1,1 +1,1 @@
-Matrix_vector_multiplication
+  srand((unsigned) time(0));
